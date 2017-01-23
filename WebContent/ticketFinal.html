@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Skyline Dreams</title>
+</head>
+<style>  
+h2{  
+color:blue;  
+background-color:fuchsia;  
+padding:5px;  
+}  
+p{  
+color:blue;  
+}  
+</style>
+<body>
+	<h2 align="center">Welcome to SkyDreams Air Line</h2>
+	<h3 align="center">Please enter the travel details</h3>
+	<table align="center">
+		<form name="myform" method="post" action="htmlToJsp.jsp">
+<tr>
+<td>Enter gender</td>
+<td><input type="radio" name="gender" value="male">Male<br>
+<input type="radio" name="gender" value="female">Female</td>
+<input type="radio" name="gender" value="other">Other</td>
+</tr>
+			<tr>
+				<td>Enter Country</td>
+				<td><select Name="Country">
+						<option value="India">India</option>
+						<option value="Germany">Germany</option>
+						<option value="Italy">Italy</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Enter City</td>
+				<td><select name="City">
+						<option value="Hyderabad">Hyderabad</option>
+						<option value="Basel">Basel</option>
+						<option value="Rome">Rome</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Enter Journey Date</td>
+				<td><input type="date" name="doj"></td>
+			</tr>
+			<tr>
+			<td><h3>Enter Passport details:</h3>
+</td>
+			</tr>
+			<tr>
+			<td>Passport no:</td>
+			<td><input type="password" name="passportNo"></td>
+			</tr>
+			<tr>
+			<td>Expiry date(mm/dd/yyyy)</td>
+			<td><input type="date" name="Expirydate"></td>
+			</tr>
+		<tr>
+			<td>Enter Click to confirm</td>
+			<td><input type="submit" name="Submit"><input
+				type="reset" name="Reset"></td>
+		</tr>
+
+		</form>
+</body>
+</html>

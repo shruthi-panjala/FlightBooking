@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, intial-scale">
+<title>Skyline Dreams</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<script src="jquery-3.1.0.js"></script>	
+<script type="text/javascript">
+function validateForm() {
+    var x = document.forms["myform"]["passportNo"].value;
+    if (x == null || x == "") {
+        alert("*Required field to be filled..!");
+        return false;
+    }
+    var y=document.forms["myform"]["email"].value;
+    if (y== null || y == "") {
+        alert("*Required field to be filled..!");
+        return false;
+    }
+}
+ //Multiple fields validation.......
+var frmvalidator=new validator("myform");
+frmvalidator.addValidation("email","req","Please enter your EmailId"); 
+
+</script>
+
+
+<script type="text/javascript">
+ //<![CDATA[ 
+ // array of possible countries in the same order as they appear in the city selection list 
+ var cityLists = new Array(5) ;
+ cityLists["empty"] = ["Select a city"]; 
+ cityLists["India"] = ["Delhi", "Hyderabad", "Mumbai", "Banglore"]; 
+ cityLists["Germany"] = ["Berlin", "Kiel", "Basel", "Mainz"]; 
+ cityLists["Italy"] = ["Rome", "Venice", "Naples"]; 
+ cityLists["France"]= ["Paris", "Nantes", "Lille"]; 
+ cityLists["Iceland"]=["Akureyri","Akranes","Selfoss"];
+ /* cityChange() is called from the onchange event of a select element. 
+ * param selectObj - the select object which fired the on change event. 
+ */ 
+ 
+ function cityChange(selectObj) { 
+	 // get the index of the selected option 
+	 var idx = selectObj.selectedIndex; 
+	 // get the value of the selected option 
+	 var which = selectObj.options[idx].value; 
+	 // use the selected option value to retrieve the list of items from the cityLists array 
+	 cList = cityLists[which]; 
+	 // get the city select element via its known id 
+	 var cSelect = document.getElementById("City"); 
+	 // remove the current options from the city select 
+	 var len=cSelect.options.length; 
+	 while (cSelect.options.length > 0) { 
+	 cSelect.remove(0); 
+	 }
+	 var newOption; 
+	 // create new options 
+	 for (var i=0; i<cList.length; i++) { 
+	 newOption = document.createElement("option"); 
+	 newOption.value = cList[i];  // assumes option string and value are the same 
+	 newOption.text=cList[i]; 
+	 // add the new option 
+	 try { 
+	 cSelect.add(newOption);  // this will fail in DOM browsers but is needed for IE 
+	 } 
+	 catch (e) { 
+	 cSelect.appendChild(newOption); 
+	 } 
+	 } 
+	 } 
+
+	</script>
+
+	<script type="text/javascript">
+	var toggleVisibility = function(element) {
+	    if(element.style.visibility=='visible'){
+	        element.style.visibility='hidden';
+	    } else {
+	        element.style.visibility='visible';
+	    }
+	    
+	};
+	var hideVisibility = function(element) {
+	    if(element.style.visibility=='visible'){
+	        element.style.visibility='hidden';
+	    } 
+	};
+</script>
+</head>
+<th>
+	<style>
+h2 {
+	color: Red;
+	background-repeat: round;
+	padding: 5px;
+	text-transform: capitalize;
+}
+
+h3 {
+	color: aqua;
+}
+
+body {
+
+background: url('/Airticket//big.jpg') no-repeat fixed center;	
+}
+
+img {
+	opacity: 0.5;
+	filter: alpha(opacity = 50); /* For IE8 and earlier */
+}
+
+.transparent {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.jumbotron {
+/* 	margin-bottom: 0px;
+	height: 462px; */
+	/* width: px; */
+	color: black;
+	/* text-shadow: black 0.3em 0.3em 0.3em; */
+	background: transparent;
+	/* background: url('/Airticket/air3.jpg') repeat-x; */
+}
+
+.container {
+	margin-bottom: 0px;
+	height: 800px;
+	width: 1200px;
+	color: white;
+	/* text-shadow: black 0.3em 0.3em 0.3em; */
+	background: transparent;
+	
+}
+td{
+height:50px;
+text-align: left;
+
+}
+
+</style>
+</th>
+<body>
+
+	<div class="jumbotron">
+		<h1 align="center">SkyDreams Air Line</h2>
+
+	</div>
+
+	<div class="container">
+		<div class="form-group">
+			<table align="center" style="color:black; font-size: large;">
+						<marquee><h3 align="center">
+					<i>WELCOME<br>Please enter following details...!
+					</i>
+				</h3></marquee>
+				<form name="myform" method="post" action="ticket" onclick="validateForm();">
+					<tr>
+						<td><label for="email">Email-Id</label></td>
+						<td><input type="text" name="email" class="form-control" required="required"></td>
+					</tr>
+				<div class="dropdown">
+					<tr>
+						<td><label for="entercountry">Enter Country</label></td>
+						<td><select Name="Country" id="country" class="form-control"  required="required" onchange="cityChange(this);">
+						<option value="empty">Select Country</option>
+								<option value="India">India</option>
+								<option value="Germany">Germany</option>
+								<option value="Italy">Italy</option>
+								<option value="France">France</option>
+								<option value="Iceland">Iceland</option>
+						</select></td>
+
+
+						<td><label style="text-indent: 3em" for="entercity">To
+								City</label></td>
+						<td><select name="City" id="City" class="form-control">
+								<span style="display: block; width: 5em;">
+								<option value="0">Select City</option>
+									<!-- <option value="Hyderabad">Hyderabad</option>
+									<option value="Basel">Basel</option>
+									<option value="Rome">Rome</option>
+									<option value="Paris">Paris</option>
+									<option value="Akranes">Akranes</option> -->
+							</span>
+						</select></td>
+					</tr>
+				</div>
+				<tr>
+
+					<td><label for="enter gender">Gender</label></td>
+					<td><input type="radio" name="gender" value="male">Male
+						<input type="radio" name="gender" value="female">Female <input
+						type="radio" name="gender" value="other" >Other</td>
+				</tr>
+				<tr>
+					<td><label for="select">Select</label></td>
+					<td><input type="radio" name="trip" value="OneWay" onclick="hideVisibility(document.getElementById('return'))">One
+						Way <input type="radio" name="trip" value="RoundTrip" required="required" onclick="toggleVisibility(document.getElementById('return'))">Round
+						Trip
+				</tr>
+				<tr>
+					<td><label for="departure">Departure<span
+							class="glyphicon glyphicon-calendar"></span></label></td>
+					<td><input type="date" name="doj" class="form-control"></td>
+					</tr>
+					<tr id="return" style="visibility: hidden;">
+					<td ><label for="return">Return<span
+							class="glyphicon glyphicon-calendar"></span></label></td>
+					<td><input type="date" name="return" class="form-control" required="required"></td>
+				</tr>
+				
+				
+				<tr>
+					<td><label for="passportno">Passport no:</label></td>
+					<td><input type="password" name="passportNo"
+						class="form-control" required="required"></td>
+				</tr>
+				<tr>
+					<td><label for="expdate">Expiry date<span
+							class="glyphicon glyphicon-calendar"></span></label></td>
+					<td><input type="date" name="Expirydate" class="form-control"></td>
+				</tr>
+				</div>
+				
+				<!-- <form name="myform" method="post" action="ticket"> -->
+					<tr>
+						<td><label for="confirm">Click to confirm</label></td>
+						<td><button class="btn btn-success"
+								>Book Ticket</button>
+							<button class="btn btn-warning">Reset</button></td>
+					</tr>
+
+
+					<!-- <script type="text/javascript">
+						function validateForm() {
+							var x = document.forms["myForm"]["passportNo"].value;
+							if (x == null || x == "") {
+								alert("Please...!! Enter passport no");
+								return false;
+							}
+						}
+					</script> -->
+
+					</div>
+</body>
+</html>
